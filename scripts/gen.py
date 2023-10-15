@@ -3,11 +3,17 @@ import shutil
 from pathlib import Path
 from xml.dom import minidom
 
+
 def parse_svg(element, out="", last=True):
     for elem in element:
         if elem.attributes:
-            d = {k: v for k, v in elem.attributes.items()}
-            out += f'm("{elem.nodeName}",{d}'
+            classes = "{"
+            if elem.nodeName == "svg":
+                classes += '"class": className,'
+            for k, v in elem.attributes.items():
+                classes += f'"{k}": "{v}",'
+            classes += "}"
+            out += f'm("{elem.nodeName}",{classes}'
             if not last:
                 out += "),"
             else:
@@ -35,6 +41,7 @@ def parse_svg(element, out="", last=True):
     if "[" in out:
         out += "]"
     out += "))"
+    out.replace("'", '"')
     return out
 
 
@@ -49,26 +56,40 @@ def process_files():
     solid_dir = f"{root_dir}/solid/"
 
     for dir in [outline_dir, solid_dir]:
-        files = list(glob.iglob(dir + '**/*.svg', recursive=True))
-        files_len = len(files)-1
+        files = list(glob.iglob(dir + "**/*.svg", recursive=True))
+        files_len = len(files) - 1
         imports = []
         for idx, filename in enumerate(sorted(files)):
             split = filename.split("/")
             package = split[-3]
 
-            name = "".join(x for x in split[-1].split(".svg")[0].title() if not x.isspace()).replace("-", "")
+            name = "".join(
+                x for x in split[-1].split(".svg")[0].title() if not x.isspace()
+            ).replace("-", "")
             name += "Icon"
             doc = minidom.parse(filename)
             svg = doc.getElementsByTagName("svg")
             out = parse_svg(svg)
 
-            template = \
-                f"""import m from "mithril";
+            template = f"""import m from "mithril";
+import {{ twMerge }} from "tailwind-merge";
 
-    export const {name} = () => ({{
-        view: () => {out}
-    }});
-        """.replace("'", '"')
+export const {name} = () => ({{
+  view: ({{ attrs }}) => {{
+    const sizes = {{
+      xs: "w-3 h-3",
+      sm: "w-4 h-4",
+      md: "w-5 h-5",
+      lg: "w-6 h-6",
+      xl: "w-8 h-8"
+    }};
+    const size = attrs.size || "md"
+    const className = twMerge("shrink-0", sizes[size], attrs.class)
+
+    return {out}
+  }}
+}});
+        """
 
             p = Path(f"{out_path}/{package}")
             p.mkdir(exist_ok=True, parents=True)
