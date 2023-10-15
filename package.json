@@ -1,0 +1,37 @@
+{
+  "name": "flowbite-icons-mithril",
+  "version": "0.0.0",
+  "description": "Mithril components built for Flowbite Icons",
+  "keywords": [
+    "flowbite",
+    "flowbite-icons",
+    "flowbite-icons-mithril",
+    "mithril"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexferl/flowbite-icons-mithril.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alexferl/flowbite-icons-mithril/issues"
+  },
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    "./solid": "./dist/solid/index.js",
+    "./outline": "./dist/outline/index.js"
+  },
+  "scripts": {
+    "lint": "npx @biomejs/biome check .",
+    "format": "npx @biomejs/biome format . --write"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.2.2"
+  },
+  "peerDependencies": {
+    "mithril": "^2.2.2"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}

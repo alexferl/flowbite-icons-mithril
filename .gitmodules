@@ -1,0 +1,6 @@
+[submodule "heroicons"]
+	path = heroicons
+	url = https://github.com/tailwindlabs/heroicons
+[submodule "flowbite-icons"]
+	path = flowbite-icons
+	url = https://github.com/themesberg/flowbite-icons
