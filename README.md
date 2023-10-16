@@ -31,6 +31,7 @@ The following size helpers are available: Default: `md`.
 |lg	|'w-6 h-6'|
 |xl	|'w-8 h-8'|
 
+Using:
 ```javascript
 m(BugIcon, {size: "lg"})
 ```
