@@ -1,6 +1,6 @@
 {
   "name": "flowbite-icons-mithril",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Mithril components built for Flowbite Icons",
   "keywords": [
     "flowbite",
@@ -30,7 +30,8 @@
     "@biomejs/biome": "^1.2.2"
   },
   "peerDependencies": {
-    "mithril": "^2.2.2"
+    "mithril": "^2.2.2",
+    "tailwind-merge": "^1.14.0"
   },
   "engines": {
     "node": ">=16"
