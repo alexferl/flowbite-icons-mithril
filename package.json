@@ -22,6 +22,7 @@
     "./outline": "./dist/outline/index.js"
   },
   "scripts": {
+    "build": "python3 scripts/gen.py && npx @biomejs/biome format . --write",
     "lint": "npx @biomejs/biome check .",
     "format": "npx @biomejs/biome format . --write"
   },
