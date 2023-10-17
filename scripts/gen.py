@@ -8,8 +8,8 @@ def generate_component_code(name, out):
     return f"""import m from "mithril";
 import {{ twMerge }} from "tailwind-merge";
 
-export const {name} = () => ({{
-  view: ({{ attrs }}) => {{
+export const {name} = {{
+  view({{ attrs }}) {{
     const sizes = {{
       xs: "w-3 h-3",
       sm: "w-4 h-4",
@@ -22,7 +22,7 @@ export const {name} = () => ({{
 
     return {out}
   }}
-}});"""
+}};"""
 
 
 def parse_svg(element, out="", last=True):
