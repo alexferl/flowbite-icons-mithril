@@ -12,11 +12,9 @@ npm i -D flowbite-icons-mithril
 import m from "mithril";
 import { BugIcon } from "flowbite-icons-mithril/solid"
 
-export const MyComponent = () => ({
-  view: () => {
-    return m(BugIcon)
-  }
-});
+export const MyComponent = {
+  view: () => m(BugIcon)
+};
 ```
 
 ## Attributes
@@ -37,8 +35,13 @@ m(BugIcon, {size: "lg"})
 ```
 
 ### Class
-You override the default sizes and pass any [Tailwind CSS](https://flowbite.com/tools/tailwind-cheat-sheet/) classes like this:
+You can override the default sizes and pass any [Tailwind CSS](https://flowbite.com/tools/tailwind-cheat-sheet/) classes like this:
 
 ```javascript
 m(BugIcon, {class: "h-24 w-24 text-blue-700 mr-4"})
+```
+
+### You can pass any extra attributes you want in the normal Mithril way:
+```javascript
+m(BugIcon, {"aria-hidden": true})
 ```
