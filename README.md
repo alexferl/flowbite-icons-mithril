@@ -10,10 +10,10 @@ npm i -D flowbite-icons-mithril
 ## Usage
 ```javascript
 import m from "mithril";
-import { BugIcon } from "flowbite-icons-mithril/solid"
+import { BugIcon } from "flowbite-icons-mithril/solid";
 
 export const MyComponent = {
-  view: () => m(BugIcon)
+  view: () => m(BugIcon),
 };
 ```
 
