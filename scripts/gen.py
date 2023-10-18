@@ -17,9 +17,8 @@ export const {name} = {{
       lg: "w-6 h-6",
       xl: "w-8 h-8"
     }};
-    const size = attrs.size || "md"
-    const className = twMerge("shrink-0", sizes[size], attrs.class)
-
+    const {{ class: className, size = "md", ...props }} = attrs
+    const merged = twMerge(sizes[size], className);
     return {out}
   }}
 }};"""
@@ -30,10 +29,10 @@ def parse_svg(element, out="", last=True):
         if elem.attributes:
             classes = "{"
             if elem.nodeName == "svg":
-                classes += '"class": className,'
+                classes += '"class": merged,'
             for k, v in elem.attributes.items():
                 classes += f'"{k}": "{v}",'
-            classes += "}"
+            classes += " ...props}"
             out += f'm("{elem.nodeName}",{classes}'
             if not last:
                 out += "),"
