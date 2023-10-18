@@ -36,12 +36,12 @@ m(BugIcon, {size: "lg"})
 
 ### Class
 You can override the default sizes and pass any [Tailwind CSS](https://flowbite.com/tools/tailwind-cheat-sheet/) classes like this:
-
 ```javascript
 m(BugIcon, {class: "h-24 w-24 text-blue-700 mr-4"})
 ```
 
-### You can pass any extra attributes you want in the normal Mithril way:
+### Attributes
+You can pass any extra attributes you want in the normal Mithril way:
 ```javascript
 m(BugIcon, {"aria-hidden": true})
 ```
