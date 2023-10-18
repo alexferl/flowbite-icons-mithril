@@ -26,12 +26,14 @@
     "lint": "npx @biomejs/biome check .",
     "format": "npx @biomejs/biome format . --write"
   },
+  "dependencies": {
+    "tailwind-merge": "^1.14.0"
+  },
   "devDependencies": {
     "@biomejs/biome": "^1.2.2"
   },
   "peerDependencies": {
-    "mithril": "^2.2.2",
-    "tailwind-merge": "^1.14.0"
+    "mithril": "^2"
   },
   "engines": {
     "node": ">=16"
