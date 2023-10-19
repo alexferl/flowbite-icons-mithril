@@ -19,7 +19,7 @@ export const MyComponent = {
 
 ## Attributes
 ### Size
-The following size helpers are available: Default: `md`.
+The following size helpers are available: Default: `sm`.
 
 | Size | CSS Classes |
 |------|-------------|

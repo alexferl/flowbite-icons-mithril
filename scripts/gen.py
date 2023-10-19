@@ -17,7 +17,7 @@ export const {name} = {{
       lg: "w-6 h-6",
       xl: "w-8 h-8"
     }};
-    const {{ class: className, size = "md", ...props }} = attrs
+    const {{ class: className, size = "sm", ...props }} = attrs
     const merged = twMerge(sizes[size], className);
     return {out}
   }}
