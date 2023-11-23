@@ -72,7 +72,7 @@ def parse_svg(element, out="", last=True):
 
 def process_files():
     # cleanup folder first
-    out_path = "dist"
+    out_path = "lib"
     if Path(out_path).is_dir():
         shutil.rmtree(out_path)
 
